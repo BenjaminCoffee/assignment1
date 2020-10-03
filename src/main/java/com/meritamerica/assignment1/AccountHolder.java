@@ -59,28 +59,32 @@ public class AccountHolder {
 		this.ssn = ssn;
 	}
 
-	public double getCheckingAccountOpeningBalance() {
-		return checkingAccountOpeningBalance;
+	// refactored checkingAccount and savingsAccount getters and setters
+	public CheckingAccount getCheckingAccount() {
+		return checkingAccount;
 	}
 
-	public void setCheckingAccountOpeningBalance(double checkingAccountOpeningBalance) {
-		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
+	public void setCheckingAccount(CheckingAccount checkingAccount) {
+		this.checkingAccount = checkingAccount;
 	}
 
-	public double getSavingsAccountOpeningBalance() {
-		return savingsAccountOpeningBalance;
+	public SavingsAccount getSavingsAccount() {
+		return savingsAccount;
 	}
 
-	public void setSavingsAccountOpeningBalance(double savingsAccountOpeningBalance) {
-		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
+	public void setSavingsAccount(SavingsAccount savingsAccount) {
+		this.savingsAccount = savingsAccount;
 	}
 
 	@Override
 	public String toString() {
 		return "AccountHolder [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
-				+ ", ssn=" + ssn + ", checkingAccountOpeningBalance=" + checkingAccountOpeningBalance
-				+ ", savingsAccountOpeningBalance=" + savingsAccountOpeningBalance + "]";
+				+ ", ssn=" + ssn + ", checkingAccount=" + checkingAccount + ", savingsAccount=" + savingsAccount + "]";
 	}
+	
+	
+
+	
 	
 	
 	
