@@ -7,8 +7,8 @@ public class AccountHolder {
 	private String lastName;
 	private String ssn;
 	
-	private double checkingAccountOpeningBalance;
-	private double savingsAccountOpeningBalance;
+	private CheckingAccount checkingAccount;
+	private SavingsAccount savingsAccount;
 	
 	public AccountHolder() {
 		
@@ -21,8 +21,10 @@ public class AccountHolder {
 		this.middleName = middleName;
 		this.lastName = lastName;
 		this.ssn = ssn;
-		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
-		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
+		// modified to point to the balance of checkingAccount field
+		this.checkingAccount.setBalance(checkingAccountOpeningBalance);
+		// modified to point to the balance of savingsAccount field
+		this.savingsAccount.setBalance(savingsAccountOpeningBalance);
 	}
 
 	public String getFirstName() {
