@@ -1,5 +1,10 @@
 package com.meritamerica.assignment1;
 
+
+/*
+ * This is the definition of the AccountHolder class.
+ * It is meant to simulate an account holder of a banking application.
+ */
 public class AccountHolder {
 	
 	private String firstName;
@@ -10,10 +15,22 @@ public class AccountHolder {
 	private CheckingAccount checkingAccount;
 	private SavingsAccount savingsAccount;
 	
+	/*
+	 * no arg constructor
+	 */
 	public AccountHolder() {
+		this.firstName = "";
+		this.middleName = "";
+		this.lastName = "";
+		this.ssn = "";
 		
+		this.checkingAccount = new CheckingAccount();
+		this.savingsAccount = new SavingsAccount();
 	}
 
+	/*
+	 * This constructor receives and argument for every field.
+	 */
 	public AccountHolder(String firstName, String middleName, String lastName, String ssn,
 			double checkingAccountOpeningBalance, double savingsAccountOpeningBalance) {
 		super();
@@ -22,11 +39,14 @@ public class AccountHolder {
 		this.lastName = lastName;
 		this.ssn = ssn;
 		// modified to point to the balance of checkingAccount field
-		this.checkingAccount.setBalance(checkingAccountOpeningBalance);
+		this.checkingAccount = new CheckingAccount(checkingAccountOpeningBalance);
 		// modified to point to the balance of savingsAccount field
-		this.savingsAccount.setBalance(savingsAccountOpeningBalance);
+		this.savingsAccount = new SavingsAccount(savingsAccountOpeningBalance);
 	}
 
+	//
+	// Accessors and mutators
+	//
 	public String getFirstName() {
 		return firstName;
 	}
@@ -59,7 +79,6 @@ public class AccountHolder {
 		this.ssn = ssn;
 	}
 
-	// refactored checkingAccount and savingsAccount getters and setters
 	public CheckingAccount getCheckingAccount() {
 		return checkingAccount;
 	}
@@ -76,17 +95,42 @@ public class AccountHolder {
 		this.savingsAccount = savingsAccount;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 * 
+	 * returns the state of the object as a string.
+	 */
 	@Override
 	public String toString() {
-		return "AccountHolder [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
-				+ ", ssn=" + ssn + ", checkingAccount=" + checkingAccount + ", savingsAccount=" + savingsAccount + "]";
+		return generateStringForToString();
 	}
 	
-	
-
-	
-	
-	
-	
-	
+	/*
+	 * returns a string to be used in the toString method.
+	 */
+	private String generateStringForToString() {
+		StringBuilder str = new StringBuilder();
+		
+		// append the name
+		str.append("Name: " + getFirstName() + " " + 
+					getMiddleName() + " " + 
+					getLastName() + "\n");
+		
+		// append social security number
+		str.append("SSN: " + getSsn() + "\n");
+		
+		// append checking account balance
+		// append checking account interest rate
+		// append checking account balance in 3 years
+		str.append(getCheckingAccount().toString());
+		
+		// append savings account balance
+		// append savings account interest rate
+		// append the savings account balance in 3 years
+		str.append(getSavingsAccount().toString());
+		
+		// return the StringBuilder object as a string.
+		return str.toString();
+	}	
 }
