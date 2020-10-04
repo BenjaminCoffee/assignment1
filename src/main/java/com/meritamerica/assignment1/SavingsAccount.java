@@ -3,12 +3,19 @@ package com.meritamerica.assignment1;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+/*
+ * This is the definition of the SavingsAccount Class.
+ * This class simulates the savings account of an account holder.
+ */
 public class SavingsAccount {
 	private final double INTEREST_RATE = 0.01;
 	
 	private double balance;
 	private double interestRate = INTEREST_RATE;
 	
+	/*
+	 * no arg constructor
+	 */
 	public SavingsAccount() {
 		
 	}

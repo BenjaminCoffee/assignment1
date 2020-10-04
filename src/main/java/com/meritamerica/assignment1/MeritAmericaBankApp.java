@@ -60,5 +60,4 @@ public class MeritAmericaBankApp {
 		// display toString output of accountHolder2
 		System.out.println(accountHolder2.toString());
 	}
-
 }
